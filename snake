@@ -1,0 +1,25 @@
+import functions
+clear()
+stop=False
+functions.go_to((15,1))
+change_hat(Hats.Dinosaur_Hat)
+while True:
+	while not stop:
+		for j in range(8):
+			for i in range(14):
+				move(North)
+			move(West)
+			for i in range(14):
+				move(South)
+			if j!=7:
+				move(West)
+		move(South)
+		for i in range(15):
+			move(East)
+		if not move(North):
+			stop=True
+	stop=False
+	change_hat(Hats.Brown_Hat)
+	functions.go_to((15,1))
+	change_hat(Hats.Dinosaur_Hat)
+
