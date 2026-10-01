@@ -1,0 +1,28 @@
+import functions
+counter=0
+
+def sort_cac(col):
+	functions.go_to((0,col))
+	for i in range(16):
+		for j in range(15):
+			if measure()>measure(East):
+				swap(East) 
+			move(East)
+		move(East)
+		
+
+
+def sort_cac_d():
+	quick_print(counter)
+	sort_cac(counter)
+	
+
+def main():
+	global counter
+	counter=0
+	while num_drones()<max_drones():
+		spawn_drone(sort_cac_d)
+		counter+=1
+	sort_cac_d()
+	
+	
