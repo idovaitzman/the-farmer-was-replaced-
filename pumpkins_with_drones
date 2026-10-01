@@ -1,0 +1,43 @@
+import till_everything
+import functions
+counter=0
+check=False
+		
+def plant_pumpkins(row):
+	functions.go_to((row,0))
+	check=False
+	while not check:
+		check=True
+		for i in range(32):
+			if get_water()<0.85:
+				use_item(Items.Water)
+			if get_entity_type()==None:
+				plant(Entities.Pumpkin)
+				check=False
+			while get_entity_type()==Entities.Dead_Pumpkin:
+				plant(Entities.Pumpkin)
+				check=False
+				do_a_flip()
+			move(North)
+				
+				
+def pumpkins_d():
+	plant_pumpkins(counter)
+
+
+def check_pumpkins():
+	while num_drones()!=1:
+		do_a_flip()
+	harvest()
+while True:
+	counter=0
+	while num_drones()<max_drones():
+		spawn_drone(pumpkins_d)
+		counter+=1
+	pumpkins_d()
+	check_pumpkins()
+
+
+			
+	
+	
