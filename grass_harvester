@@ -1,0 +1,19 @@
+clear()
+import functions
+counter=0
+
+def g(row):
+	functions.go_to((row,0))
+	while True:
+		harvest()
+		move(North)
+
+
+def g_d():
+	g(counter)
+	
+
+while num_drones()<max_drones():
+	spawn_drone(g_d)
+	counter+=1
+g_d()
