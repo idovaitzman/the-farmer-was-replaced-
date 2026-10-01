@@ -39,6 +39,12 @@ def get_future_pos(curr_pos,direction):
 		
 def distance(pos,pos_target):
 	return ((pos[0]-pos_target[0])**2+(pos[1]-pos_target[1])**2)**0.5
+	
+def wait_for_all():
+	while num_drones()>1:
+		do_a_flip()
+	
+	
 
 		
 
