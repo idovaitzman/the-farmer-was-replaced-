@@ -5,7 +5,7 @@ import sort_rows
 while True:
 	plant_cac.main()
 	sort_cols.main()
-	functions.flip(5)
+	functions.wait_for_all()
 	sort_rows.main()
-	functions.flip(5)
+	functions.wait_for_all()
 	harvest()
