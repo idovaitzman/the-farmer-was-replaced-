@@ -1,0 +1,63 @@
+import create_maze
+import functions
+create_maze.create_maze()
+substance = get_world_size() * 2**(num_unlocked(Unlocks.Mazes) - 1)
+opposites={North:South,East:West,South:North,West:East}
+directions=[North,East,South,West]
+counter=0
+solved=False
+def solve():
+	global solved
+	if solved:
+		return 1
+	crop=get_entity_type()
+	if crop!=None and crop!=Entities.Hedge:
+		if counter>=298:
+			harvest()
+			return 1
+		use_item(Items.Weird_Substance, substance)
+		return 1
+		
+	
+	length_places=len(places)
+	places.add((get_pos_x(), get_pos_y()))
+	if length_places==len(places):
+		return 0
+	
+	directions_list = []
+	for direction in directions:
+		if can_move(direction) and functions.get_future_pos((get_pos_x(),get_pos_y()),direction) not in places:
+			dist = functions.distance(functions.get_future_pos((get_pos_x(), get_pos_y()), direction), chest)
+			directions_list.append({"direction": direction, "distance": dist})
+		
+	n = len(directions_list)
+	for i in range(n):
+		for j in range(0, n - i - 1):
+			if directions_list[j]["distance"] > directions_list[j+1]["distance"]:
+				directions_list[j], directions_list[j+1] = directions_list[j+1], directions_list[j]
+	
+	moves=0	
+	step_res=False
+	for item in directions_list:
+		direction = item["direction"]
+		move(direction)
+		step_res=solve()
+		if step_res:
+			solved=True
+			return 1
+		else:
+			move(opposites[direction])
+			
+	return 0
+		
+while True:
+	chest=measure()
+	places=set()
+	solve()
+	counter+=1
+	solved=False
+	
+			
+			
+	
+	
