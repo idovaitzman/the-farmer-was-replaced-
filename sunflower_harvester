@@ -1,0 +1,14 @@
+import till_everything
+while True:
+	for i in range(16):
+		for j in range(16):
+			if get_water()<0.85:
+				use_item(Items.Water)
+			if can_harvest():
+				harvest()
+			plant(Entities.Sunflower)
+				
+			move(North)
+		move(West)
+		
+		
