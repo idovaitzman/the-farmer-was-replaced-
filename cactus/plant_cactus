@@ -1,0 +1,22 @@
+import functions
+counter=0
+def plant_cac(row):
+	functions.go_to((row,0))
+	for i in range(32):
+		till()
+		plant(Entities.Cactus)
+		move(North)
+
+
+def plant_cac_d():	
+	plant_cac(counter)
+	
+def main():
+	global counter
+	counter=0
+	clear()
+	while num_drones()<max_drones():
+		spawn_drone(plant_cac_d)
+		counter+=1
+	plant_cac_d()
+	
