@@ -1,0 +1,46 @@
+def go_to(cords):
+	pos_x=get_pos_x()
+	dist_x=pos_x-cords[0]
+	if dist_x>0:
+		for i in range(dist_x):
+			move(West)
+	elif dist_x<0:
+		dist_x=dist_x*(-1)
+		for i in range(dist_x):
+			move(East)
+	
+			
+	pos_y=get_pos_y()
+	dist_y=pos_y-cords[1]
+	if dist_y>0:
+		for i in range(dist_y):
+			move(South)
+	elif dist_y<0:
+		dist_y=dist_y*(-1)
+		for i in range(dist_y):
+			move(North)
+			
+			
+			
+def flip(num):
+	for i in range(num):
+		do_a_flip()
+		
+		
+def get_future_pos(curr_pos,direction):
+	if direction==North:
+		return (curr_pos[0],curr_pos[1]+1)
+	if direction==South:
+		return (curr_pos[0],curr_pos[1]-1)
+	if direction==West:
+		return (curr_pos[0]-1,curr_pos[1])
+	if direction==East:
+		return (curr_pos[0]+1,curr_pos[1])
+		
+def distance(pos,pos_target):
+	return ((pos[0]-pos_target[0])**2+(pos[1]-pos_target[1])**2)**0.5
+
+		
+
+	
+	
