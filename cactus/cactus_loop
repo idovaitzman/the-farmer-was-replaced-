@@ -1,0 +1,11 @@
+import plant_cac
+import sort_cols
+import functions
+import sort_rows
+while True:
+	plant_cac.main()
+	sort_cols.main()
+	functions.flip(5)
+	sort_rows.main()
+	functions.flip(5)
+	harvest()
